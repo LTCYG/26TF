@@ -76,13 +76,11 @@
     font-weight:900;
   }
   .hero h1 .accent{color:var(--red);}
-.hero-sub{
-    margin:16px auto 0;
-    max-width:560px;
+  .hero-sub{
+    margin-top:16px;
     font-size:16px;
     color:var(--ink-soft);
-    text-align:left;
-}
+  }
   .hero-date{
     display:inline-flex;
     gap:10px;
@@ -122,7 +120,7 @@
   }
   .section-head h2{font-size:26px;}
   .section-lead{
-    max-width:560px;margin:14px auto 0;text-align:left;color:var(--ink-soft);font-size:15px;
+    max-width:560px;margin:14px auto 0;text-align:center;color:var(--ink-soft);font-size:15px;
   }
 
   /* ---------- intro card ---------- */
@@ -217,21 +215,116 @@
     background:linear-gradient(180deg, rgba(183,40,46,0.06), rgba(184,145,47,0.06));
     border:1px solid var(--gold);
     border-radius:3px;
-    padding:30px 28px;
+    padding:32px 26px;
+    text-align:center;
+  }
+  .contact-card h3{font-size:24px;margin-bottom:20px;}
+
+  .phone-list{list-style:none;padding:0;margin:0 0 24px;}
+  .phone-list li{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    padding:12px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:16px;
+    font-weight:700;
+  }
+  .phone-list li:last-child{border-bottom:none;}
+  .phone-list .role{color:var(--ink-soft);font-size:14px;font-weight:700;}
+  .phone-list a{
+    color:var(--red-deep);
+    text-decoration:none;
+    font-weight:800;
+    font-size:22px;
+  }
+
+  .volunteer-box{
+    margin:0 0 24px;
+    padding:20px;
+    background:rgba(255,255,255,0.55);
+    border:1.5px dashed var(--gold);
+    border-radius:3px;
     text-align:left;
   }
-  .contact-card h3{font-size:24px;margin-bottom:18px;}
-  .contact-list{list-style:none;padding:0;margin:0;font-size:20px;font-weight:700;}
-  .contact-list li{margin-bottom:14px;}
-  .contact-list a{color:var(--red-deep);text-decoration:none;font-weight:800;font-size:22px;}
-  .contact-note{margin-top:20px;font-size:16px;font-weight:700;color:var(--ink-soft);}
+  .volunteer-box .v-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:"Noto Serif TC",serif;
+    font-weight:700;
+    font-size:18px;
+    color:var(--red-deep);
+    margin-bottom:10px;
+  }
+  .volunteer-box p{
+    margin:0 0 8px;
+    font-size:15.5px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .volunteer-box .v-perk{
+    margin:0;
+    font-size:14.5px;
+    font-weight:700;
+    color:var(--red-deep);
+    background:rgba(216,175,78,0.18);
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:2px;
+  }
+
+  .qr-grid{
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+  }
+  .qr-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+  .qr-item img{
+    width:150px;
+    height:150px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:#fff;
+    padding:6px;
+  }
+  .qr-item span{
+    font-size:14px;
+    font-weight:700;
+    color:var(--ink);
+  }
+
+  .contact-note{font-size:16px;font-weight:700;color:var(--ink-soft);}
 
   footer{
-    text-align:center;
-    padding:34px 22px 50px;
+    padding:0 22px 50px;
     color:var(--ink-soft);
     font-size:12.5px;
   }
+  .warning-box{
+    max-width:760px;
+    margin:0 auto 26px;
+    padding:16px 20px;
+    background:rgba(183,40,46,0.08);
+    border:1.5px solid var(--red);
+    border-radius:3px;
+    text-align:center;
+  }
+  .warning-box p{
+    margin:0;
+    font-size:14px;
+    font-weight:700;
+    color:var(--red-deep);
+    line-height:1.7;
+  }
+  .footer-credit{text-align:center;}
 </style>
 </head>
 <body>
@@ -282,7 +375,7 @@
     </div>
 
     <figure class="map-figure">
-      <img src="assets/route-map.jpg" alt="莽藤里朝陽宮上午繞境路線圖" loading="lazy">
+      <img src="assets/route-map.jpg" alt="荖藤里朝陽宮上午繞境路線圖" loading="lazy">
       <figcaption class="map-caption">上午繞境路線圖（原始海報）／朝陽宮 05-2325527</figcaption>
     </figure>
   </div>
@@ -347,21 +440,48 @@
   <div class="wrap">
     <div class="contact-card">
       <h3>活動洽詢與報名</h3>
-      <ul class="contact-list">
-        <li>朝陽宮　<a href="tel:052325527">05-2325527</a></li>
-        <li>平安宴報名／總幹事 郭銘村　<a href="tel:0912147878">  0912-147878 / 0933-278303 </a></li>
-        <li>誠徵活動義工協助本次活動進行，歡迎有意願者向廟方報名參與，名額有限，額滿為止。<br>（凡完成報名並全程參與活動者，可獲得免費平安宴一位名額。）</li>
+
+      <ul class="phone-list">
+        <li>
+          <span class="role">朝陽宮</span>
+          <a href="tel:052325527">05-2325527</a>
+        </li>
+        <li>
+          <span class="role">平安宴報名／總幹事 郭銘村</span>
+          <a href="tel:0912147878">0912-147878</a>
+          <a href="tel:0933278303">0933-278303</a>
+        </li>
       </ul>
-      <p class="contact-note">朝陽宮主委：何峻豪 暨全體理委員、值年爐主：王慶祥 暨全體頭家　一同敬邀</p>
-      <p class="contact-note">
-      ⚠️ 防詐騙聲明：近期有不明人士冒用廟方名義進行聯絡。朝陽宮特此聲明，廟方不會主動致電要求匯款、轉帳或索取個人資料。所有捐獻、報名及活動相關事項，請務必透過來電至官方管道查證，以維護自身權益。
-      </p>
+
+      <div class="volunteer-box">
+        <div class="v-title">📣 誠徵活動義工</div>
+        <p>協助本次繞境賜福活動進行，歡迎有意願者向廟方報名參與，名額有限，額滿為止。</p>
+        <p class="v-perk">凡完成報名並全程參與活動者，可獲得免費平安宴一位名額</p>
+      </div>
+
+      <div class="qr-grid">
+        <div class="qr-item">
+          <img src="assets/QR_fans.png" alt="荖藤里朝陽宮粉絲專頁 QR Code" loading="lazy">
+          <span>朝陽宮粉絲專頁</span>
+        </div>
+        <div class="qr-item">
+          <img src="assets/qr_Volunteer.png" alt="荖藤里朝陽宮志工報名 QR Code" loading="lazy">
+          <span>志工報名</span>
+        </div>
+      </div>
+
+      <p class="contact-note">朝陽宮主委：何峻豪　暨全體理委員、值年爐主：王慶祥　暨全體頭家　一同敬邀</p>
     </div>
   </div>
 </section>
 
 <footer>
-  荖藤里朝陽宮　池府千歲聖誕千秋祈安繞境賜福活動　｜　本頁資訊如與現場公告不同，依廟方最新公告為準
+  <div class="warning-box">
+    <p>⚠️ 防詐騙聲明：近期有不明人士冒用廟方名義進行聯絡。朝陽宮特此聲明，廟方不會主動致電要求匯款、轉帳或索取個人資料。所有捐獻、報名及活動相關事項，請務必透過來電至官方管道查證，以維護自身權益。</p>
+  </div>
+  <div class="footer-credit">
+    荖藤里朝陽宮　池府千歲聖誕千秋祈安繞境賜福活動　｜　本頁資訊如與現場公告不同，依廟方最新公告為準
+  </div>
 </footer>
 
 </body>
